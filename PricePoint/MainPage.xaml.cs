@@ -3,10 +3,12 @@
     public partial class MainPage : ContentPage
     {
         int count = 0;
+        private readonly LocalDbService _dbService;
 
-        public MainPage()
+        public MainPage(LocalDbService localDbService)
         {
             InitializeComponent();
+            _dbService = localDbService;
         }
 
         private void OnCounterClicked(object sender, EventArgs e)
