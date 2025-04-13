@@ -1,4 +1,6 @@
-﻿namespace PricePoint
+﻿using PricePoint.Pages;
+
+namespace PricePoint
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new MainPage(new LocalDbService());
+            MainPage = new NavigationPage(new WelcomePage(new LocalDbService()));
         }
     }
 }
