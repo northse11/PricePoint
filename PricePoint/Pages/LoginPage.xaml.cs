@@ -36,7 +36,7 @@ public partial class LoginPage : ContentPage
         else
         {
             await DisplayAlert("Hi", "Good Login!", "Ok");
-            //Navigation.PushAsync(new HomePage());
+            Navigation.PushAsync(new HomePage(_dbService));
         }
     }
 }

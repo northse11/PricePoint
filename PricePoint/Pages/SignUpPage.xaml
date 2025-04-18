@@ -10,8 +10,8 @@
                FontSize="Large"
                FontAttributes="Bold"
                TextColor="Black"/>
-        <Entry x:Name="entryUsername" Placeholder="Username" BackgroundColor="White"/>
-        <Entry x:Name="entryPassword" Placeholder="Password" IsPassword="True" BackgroundColor="White"/>
+        <Entry x:Name="entryUsername" Placeholder="Username" BackgroundColor="White" TextColor="Black"/>
+        <Entry x:Name="entryPassword" Placeholder="Password" IsPassword="True" BackgroundColor="White" TextColor="Black"/>
         <Button x:Name="btnSignup" Text="Sign Up" Clicked="btnSignup_Clicked" BackgroundColor="DarkSlateGrey" TextColor="white"/>
     </VerticalStackLayout>
 </ContentPage>
