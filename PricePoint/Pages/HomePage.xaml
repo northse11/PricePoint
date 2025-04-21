@@ -16,18 +16,16 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
         <ListView x:Name="Lv" HasUnevenRows="True" Grid.Row="1">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <VerticalStackLayout Padding="5">
-                        <Label Text="{Binding ItemName}" FontSize="20" FontAttributes="Bold"/>
-                        <Grid ColumnDefinitions="Auto,*,Auto">
-                            <Label Grid.Column="0" Text="{Binding ItemPrice}"/>
-                        </Grid>
-                    </VerticalStackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <VerticalStackLayout Padding="5">
+                            <Label Text="{Binding ItemName}" FontSize="20" FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
+    <Button Clicked="Button_Clicked"/>
 </ContentPage>
