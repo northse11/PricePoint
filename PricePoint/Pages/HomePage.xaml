@@ -10,6 +10,8 @@
                     <ViewCell>
                         <StackLayout Padding="5" WidthRequest="120">
                             <Label Text="{Binding Name}" FontSize="20" FontAttributes="Bold"/>
+                            <Button Text="Select Restaurant"
+                Clicked="OnSelectRestaurantButtonClicked"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
@@ -22,7 +24,7 @@
                     <VerticalStackLayout Padding="5">
                         <Label Text="{Binding ItemName}" FontSize="20" FontAttributes="Bold"/>
                         <Grid ColumnDefinitions="Auto,*,Auto">
-                            <Label Grid.Column="0" Text="{Binding ItemPrice}"/>
+                            <Label Grid.Column="0" Text="{Binding Price}"/>
                         </Grid>
                     </VerticalStackLayout>
                 </ViewCell>

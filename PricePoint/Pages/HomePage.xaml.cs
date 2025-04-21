@@ -1,3 +1,6 @@
+
+using PricePoint.Objects;
+
 namespace PricePoint.Pages;
 
 public partial class HomePage : ContentPage
@@ -19,4 +22,8 @@ public partial class HomePage : ContentPage
         Cv.ItemsSource = list2;
     }
 
+    private async void OnSelectRestaurant(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new RestaurantSelectionPage(_dbService));
+    }
 }
