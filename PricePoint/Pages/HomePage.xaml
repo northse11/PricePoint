@@ -2,32 +2,60 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PricePoint.Pages.HomePage"
-             Title="HomePage">
-    <Grid RowDefinitions="250, *">
-        <CollectionView x:Name="Cv" ItemsLayout="HorizontalList" Grid.Row="0">
+             Title="HomePage"
+             BackgroundColor="AntiqueWhite">
+    <Grid RowDefinitions="Auto, Auto, Auto, *">
+        <Label Grid.Row="0"
+           Text="PricePoint"
+           FontSize="Title"
+           FontAttributes="Bold"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           Padding="20"
+           TextColor="Black"/>
+        <CollectionView Grid.Row="1"
+                    Margin="5"
+                    x:Name="Cv"
+                    HeightRequest="100"
+                    SelectionMode="Single"
+                    SelectionChanged="Cv_SelectionChanged">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="20"/>
+            </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="5" WidthRequest="120">
-                            <Label Text="{Binding Name}" FontSize="20" FontAttributes="Bold"/>
-                        </StackLayout>
-                    </ViewCell>
+                    <Border Padding="10" WidthRequest="150" BackgroundColor="DarkSlateGrey">
+                        <VerticalStackLayout Padding="0" Spacing="0" VerticalOptions="Center" HorizontalOptions="Center">
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                            </VerticalStackLayout.GestureRecognizers>
+                            <Label FontSize="Medium" HorizontalOptions="Center" Text="{Binding Type}" TextColor="White"/>
+                        </VerticalStackLayout>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <ListView x:Name="Lv" HasUnevenRows="True" Grid.Row="1">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <VerticalStackLayout Padding="5">
-                        <Label Text="{Binding ItemName}" FontSize="20" FontAttributes="Bold"/>
-                        <Grid ColumnDefinitions="Auto,*,Auto">
-                            <Label Grid.Column="0" Text="{Binding ItemPrice}"/>
-                        </Grid>
-                    </VerticalStackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+        <CollectionView Grid.Row="2"
+                Margin="5"
+                x:Name="CvResturants"
+                SelectionMode="Multiple"
+                SelectionChanged="CvResturants_SelectionChanged"
+                MaximumHeightRequest="300">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="15"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="5" Margin="5" BackgroundColor="DarkSlateGrey">
+                        <VerticalStackLayout Padding="10" Spacing="0" VerticalOptions="Center">
+                            <Label FontSize="Medium" Text="{Binding Name}" TextColor="White"/>
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Grid.Row="3"
+            Text="View Selected Restaurants" HorizontalOptions="Center"
+            VerticalOptions="Center" Clicked="Button_Clicked" BackgroundColor="DarkSlateGrey" TextColor="White"/>
     </Grid>
 </ContentPage>

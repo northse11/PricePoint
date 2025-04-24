@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PricePoint.Pages.ComparisonPage"
+             Title="ComparisonPage"
+             BackgroundColor="AntiqueWhite">
+    <Grid RowDefinitions="Auto, *" ColumnDefinitions="*, *">
+        <Label x:Name="RestaurantTitle"
+               TextColor="Black"
+                FontSize="24"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                Grid.Row="0" Grid.Column="0"/>
+        <ListView x:Name="MenuListView"
+                  HasUnevenRows="True"
+                  Grid.Row="1" Grid.Column="0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="5">
+                            <Label Text="{Binding ItemName}" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                            <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" FontSize="14" TextColor="Black"/>
+                            <Label Text="{Binding ItemDescription}" FontSize="12" TextColor="Gray"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label x:Name="RestaurantTitle2"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="Black"
+               Grid.Row="0" Grid.Column="1"/>
+        <ListView x:Name="MenuListView2"
+                  HasUnevenRows="True"
+                  Grid.Row="1" Grid.Column="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="5">
+                            <Label Text="{Binding ItemName}" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                            <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" FontSize="14" TextColor="Black"/>
+                            <Label Text="{Binding ItemDescription}" FontSize="12" TextColor="Gray"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

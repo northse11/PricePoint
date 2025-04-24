@@ -41,7 +41,6 @@ public partial class SignUpPage : ContentPage
                 await _dbService.CreateUser(newUser);
                 entryPassword.Text = "";
                 entryUsername.Text = "";
-                await DisplayAlert("Ok", "New user made", "Ok");
                 Navigation.PushAsync(new HomePage(_dbService));
             }
             else
