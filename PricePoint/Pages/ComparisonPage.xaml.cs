@@ -5,15 +5,18 @@ namespace PricePoint.Pages;
 public partial class ComparisonPage : ContentPage
 {
     private readonly LocalDbService _dbService;
+    private readonly List<Restaurant> _restaurants;
     private readonly Restaurant _restaurant;
     private readonly Restaurant _restaurant2;
 
-    public ComparisonPage(LocalDbService dbService, Restaurant restaurant, Restaurant restaurant1)
+    public ComparisonPage(LocalDbService dbService, List<Restaurant> restaurants)
     {
         InitializeComponent();
         _dbService = dbService;
-        _restaurant = restaurant;
-        _restaurant2 = restaurant1;
+        _restaurants = restaurants;
+        _restaurant = _restaurants.FirstOrDefault();
+        _restaurants.Remove(_restaurant);
+        _restaurant2 = _restaurants.FirstOrDefault();
         
     }
 
@@ -26,6 +29,7 @@ public partial class ComparisonPage : ContentPage
         var allItems = await _dbService.GetMenuItems();
         var filteredItems = allItems
             .Where(item => item.RestaurantId == _restaurant.RestaurantId)
+            .OrderBy(item => item.ItemType)
             .ToList();
 
         MenuListView.ItemsSource = filteredItems;
@@ -35,6 +39,7 @@ public partial class ComparisonPage : ContentPage
         var allItems2 = await _dbService.GetMenuItems();
         var filteredItems2 = allItems2
             .Where(item => item.RestaurantId == _restaurant2.RestaurantId)
+            .OrderBy(item => item.ItemType)
             .ToList();
 
         MenuListView2.ItemsSource = filteredItems2;
